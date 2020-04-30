@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"hub/src/app/routers/api/hub"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -60,6 +61,9 @@ func InitRouter() *gin.Engine {
 		//生成文章海报
 		apiv1.POST("/articles/poster/generate", v1.GenerateArticlePoster)
 	}
+
+	apiHub := r.Group("/api/hub")
+	apiHub.GET("getalltypes",hub.GetAllTypes)
 
 	return r
 }

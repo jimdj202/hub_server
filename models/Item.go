@@ -32,3 +32,12 @@ func (i *Item)Save() *gorm.DB{
 //	record := &Item{Url: i.Url}
 //	db.GetMyDB().GetGormDB().Find(record)
 //}
+
+func GetAllTypes() ([]Item,error){
+	var items []Item
+	retDb:= myDB.GetMyDB().GetGormDB().Table("items").Select("type_domain_id, type_domain").Group("type_domain_id").Find(&items)
+	if retDb.Error != nil {
+		return nil,retDb.Error
+	}
+	return items,nil
+}
