@@ -32,7 +32,7 @@ func main(){
 	defer db.GetMyDB().Close()
 
 	pwd,_ := os.Getwd()
-	pwd = pwd + "/spiders"
+	pwd = pwd + "./spider/spiders"
 	fmt.Println(pwd)
 	//获取文件或目录相关信息
 	fileInfoList,err := ioutil.ReadDir(pwd)
