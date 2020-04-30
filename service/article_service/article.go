@@ -3,10 +3,10 @@ package article_service
 import (
 	"encoding/json"
 
-	"github.com/EDDYCJY/go-gin-example/models"
-	"github.com/EDDYCJY/go-gin-example/pkg/gredis"
-	"github.com/EDDYCJY/go-gin-example/pkg/logging"
-	"github.com/EDDYCJY/go-gin-example/service/cache_service"
+	"hub/src/app/models"
+	"hub/src/app/pkg/gredis"
+	"hub/src/app/pkg/logging"
+	"hub/src/app/service/cache_service"
 )
 
 type Article struct {

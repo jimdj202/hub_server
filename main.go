@@ -2,22 +2,22 @@ package main
 
 import (
 	"fmt"
+	"hub/src/app/db"
 	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/EDDYCJY/go-gin-example/models"
-	"github.com/EDDYCJY/go-gin-example/pkg/gredis"
-	"github.com/EDDYCJY/go-gin-example/pkg/logging"
-	"github.com/EDDYCJY/go-gin-example/pkg/setting"
-	"github.com/EDDYCJY/go-gin-example/routers"
-	"github.com/EDDYCJY/go-gin-example/pkg/util"
+	"hub/src/app/pkg/gredis"
+	"hub/src/app/pkg/logging"
+	"hub/src/app/pkg/setting"
+	"hub/src/app/pkg/util"
+	"hub/src/app/routers"
 )
 
 func init() {
 	setting.Setup()
-	models.Setup()
+	db.Setup()
 	logging.Setup()
 	gredis.Setup()
 	util.Setup()
@@ -26,9 +26,9 @@ func init() {
 // @title Golang Gin API
 // @version 1.0
 // @description An example of gin
-// @termsOfService https://github.com/EDDYCJY/go-gin-example
+// @termsOfService https://hub/src/app
 // @license.name MIT
-// @license.url https://github.com/EDDYCJY/go-gin-example/blob/master/LICENSE
+// @license.url https://hub/src/app/blob/master/LICENSE
 func main() {
 	gin.SetMode(setting.ServerSetting.RunMode)
 
