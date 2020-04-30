@@ -41,3 +41,7 @@ func GetAllTypes() ([]Item,error){
 	}
 	return items,nil
 }
+
+func (i* Item)GetType(){
+	
+}
