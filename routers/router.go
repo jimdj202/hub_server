@@ -64,6 +64,7 @@ func InitRouter() *gin.Engine {
 
 	apiHub := r.Group("/api/hub")
 	apiHub.GET("getalltypes",hub.GetAllTypes)
+	apiHub.GET("gettype",hub.GetType)
 
 	return r
 }

@@ -42,6 +42,11 @@ func GetAllTypes() ([]Item,error){
 	return items,nil
 }
 
-func (i* Item)GetType(){
-
+func GetType(domainId string,offset int,limitNum int)([]Item,error){
+	var items []Item
+	retDb:= myDB.GetMyDB().GetGormDB().Table("items").Where("type_domain_id = ? ",domainId).Offset(offset).Limit(limitNum).Order("index").Find(&items)
+	if retDb.Error != nil {
+		return nil,retDb.Error
+	}
+	return items,nil
 }
