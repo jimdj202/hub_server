@@ -35,13 +35,14 @@ func (s *Spider) GetZhiHuDaily() []models.Item{
 		return items
 	}
 	defer res.Body.Close()
-
+	//str, _ := ioutil.ReadAll(res.Body)
+	//fmt.Println(string(str))
 	document, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		fmt.Println("抓取" + s.Name + "失败")
 		return items
 	}
-	document.Find(".row .box").Each(func(i int, selection *goquery.Selection) {
+	document.Find("div.wrap div.box").Each(func(i int, selection *goquery.Selection) {
 		s := selection.Find("a").First()
 		url, boolUrl := s.Attr("href")
 		text := s.Find("span").Text()
