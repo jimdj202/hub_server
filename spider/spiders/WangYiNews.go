@@ -50,8 +50,8 @@ func (s *Spider) GetWangYiNews() []models.Item{
 		url, boolUrl := s.Attr("href")
 		text, _ := GbkToUtf8([]byte(s.Text()))
 
-		descText := selection.Find("a.article-list__abstract").Text()
-		comNum := selection.Find("span.article-level1").Text()
+		//descText := selection.Find("a.article-list__abstract").Text()
+		comNum := selection.Find("td.cBlue").Text()
 		//comNum = strings.ReplaceAll(comNum,",","")
 		reg, _ := regexp.Compile("\\d+")
 		comNum2 := reg.Find([]byte(comNum))
@@ -70,7 +70,7 @@ func (s *Spider) GetWangYiNews() []models.Item{
 				TypeDomainID: typeDomainID,
 				TypeFilter: "",
 				CommentNum: comNum3 ,
-				Desc: descText,
+				Desc: "",
 				//Extra: extra,
 				//Date:       time.Time{},
 
